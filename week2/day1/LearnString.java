@@ -1,4 +1,4 @@
-package week2;
+package week2.day1;
 
 public class LearnString {
 
@@ -8,13 +8,12 @@ public class LearnString {
 //		koushik
 //		kihsouk
 		
-		String str = "koushik";
-		int len = str.length();
-		String temp ="";
-		for (int i = len-1; i>=0; i--) {
-		System.out.print(str.charAt(i));
-		}
+		/*
+		 * int len = str.length(); String temp =""; for (int i = len-1; i>=0; i--) {
+		 * System.out.print(str.charAt(i)); }
+		 */
 		
+		String str = "koushik";
 		char toFind = 'k';
 		char[] myArr = str.toCharArray();
 		int numberOfK = 0;

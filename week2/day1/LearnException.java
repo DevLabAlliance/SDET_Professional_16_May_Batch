@@ -1,4 +1,4 @@
-package week2;
+package week2.day1;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
