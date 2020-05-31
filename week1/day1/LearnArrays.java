@@ -6,9 +6,13 @@ public class LearnArrays {
 
 	String names[] = {"RB", "Kuldeep", "Ravi", "Monika", "Myname"
 				, "Koushik"};
-		for (String eachName : names) {
-			System.out.println(eachName);	
-		}
+	
+	
+	
+	System.out.println(names[6]);
+		/*
+		 * for (String eachName : names) { System.out.println(eachName); }
+		 */
 	
 		
 		
