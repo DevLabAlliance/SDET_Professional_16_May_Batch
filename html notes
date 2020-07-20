@@ -1,0 +1,124 @@
+What is Web?
+
+What is the difference between Internet and Web?
+
+Internet is the collection of hardware/computers....connected globally....through LAN or WAN
+
+			interconnected computers globally - global network of hardware
+			
+WWW or web - collection of globally connected resources mostly web pages..(images)
+
+Internet is providing the infrastructure and Web is the application -  actual content....HTML pages...
+
+We email, file transfer....through Internet...WWW is one of the activities you can perform using Internet.
+
+World Wide Web - when webpages(HTML) are interchanged between user and client
+
+
+1. http/https : Protocol on which web works. If we transfer to some data across computers, they need to follow some protocol...(Hypertext Transfer Protocol)
+				(rules/contract)
+2. how the resources would be identified : URL (unified resource locator)
+3. the resources have some langugage : HTML
+
+ports are hidden : when request reaches to an ip, server location, several apps are runnning on different ports...
+microserver is divided virtually - webrequests are lsitended on port 80 ...database servers - 22 (SSH)
+
+	lets say there is a webpage I want to expose on Internet : http://www.mywebsite.com/aboutme -->http://www.mywebsite.com:80/aboutme 
+	(server - DNS resolves this into IP - server where this app is hosted - it will reach for root and then aboutme page in HTML is searched and then rendered)
+	
+https://www.facebook.com/ : hits the server where facebook application is hosted and homepage of facebook is returned.
+
+The resources which are exchanged mostly are web pages or HTML. (Hyper Text Markup Language)
+
+WWW or web - collection of globally connected resources mostly web pages in HTML..connected through hypertext...
+
+HTML : there are links which connects pages on different servers. We click on one link, the request goes and some other page is rendered. This is hypertext
+	   The hypertext is marked up with tags....so that client can understand the text...client is the browser...
+
+	some http application should reside - listening on server, which should be able to host HTML pages (links)
+	
+	Client & Server
+	Server - which can serve a request
+	         for http request - http server or web server ( eg : Apache Tomcat, Websphere)
+	Client : 
+	
+	gmail.com : SMTP server..(email - SMTP protocols)
+	
+CHrome is a web client : when we enter URL - we hit those http /web servers and  websites load...web pages get loaded
+	
+httpRequest
+httpResponse
+	
+---------------------------------------------------------------------------------
+
+Autofilling the suggestion for tags....in IDE
+
+quirks mode
+
+HTML: structuring (style tags are deprecated now)
+CSS(Cascaded Style Sheets): styling
+JS(JavaScript) : behaviour 
+
+quirks mode : apply legacy rules and display the page.
+
+block level elements - a line break before and after them.
+inline elements - 
+
+CSS
+
+table{} - referenecing the element
+#tb1{} - referencing through the id
+.tbclass - referencing through the class of the element
+
+
+<div> - groups together block level elements
+<span> - groups together inline elements
+
+-------------------------------------------------------------------------------------
+
+Interactive web apps - data exchange through request parameters
+Form : request parameters are sent using form element and the action mentioned is executed.
+
+<form> tag - the need for form - in web, to exchange the data 
+
+The action attribute defines the location (URL) where the form's collected data should be sent when it is submitted.
+The method attribute defines which HTTP method to send the data with (usually get or post).
+-----------------------------------------------
+
+<form> -- on submit, it creates an http request, with URL = action value, and request param = form param
+
+HTTP Request types -
+GET --- http://google.com/search?q=Virat&mode=online&rating=2&feedback=heeell - default request type
+
+
+POST --- http://google.com/search : update on the server /backend
+
+form-data
+q=Vikas
+mode=online
+rating=2
+feedback=s;fjks
+
+PUT,DELETE etc
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+

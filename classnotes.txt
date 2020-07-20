@@ -1,0 +1,153 @@
+--------------------------------------
+Dynamic Web Application : response according to the request sent
+
+						page is rendered dynamically.
+						
+Java -- JEE standard
+JEE - servlet, jsp, websockets, rest services
+-------------------------------------------------------------------------------------------------
+
+localhost:8080/welcome
+submitting - localhost:8080/search
+
+-----------------------------------------------------------------------------
+Servlet
+-- Java program/class which extends HTTPServlet -- url mapping /search
+doGet(request, response) 
+doPost(request, response) 
+
+Deployment Descriptor
+-- Web.xml
+
+-----------------------------------------------------------------------------------
+
+<servlet>
+  <servlet-name>ServletServlet</servlet-name>
+  <servlet-class>weblogic.servlet.ServletServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+
+<servlet-name>ServletServlet</servlet-name>
+  <url-pattern>/myservlet/*</url-pattern>
+</servlet-mapping>
+
+
+ <!-- <servlet>
+    <description></description>
+    <display-name>WelcomeServlet</display-name>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <servlet-class>com.dla.controller.WelcomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <url-pattern>/WelcomeServlet</url-pattern>
+  </servlet-mapping> -->
+Java EE 6.0 onwards - annotations are used.
+
+------------------------------------------------------------------------------------
+Apache, Nginx -- Web Servers serving static contents (plain servers)
+
+Helper application/program -- container -- required for dynamic web application.
+Tomcat -- Apache web server + Tomcat container
+Websphere, JBoss, IIS
+
+request comes to server - forwards to container - will read deployment descriptor(web.xml), read mapping and then forward to servlet.
+
+---------------------------------------------------------------------------------
+
+www.dla.com/welcome.do
+
+--------------------------------------------------------------------------------
+
+Servlet Lifecycle 
+
+init() --- called once by the container on first request (if loadOnstartup enabled, then container instantiates all the servlets when war is deployed.
+			as soon as the init() is called, the class becomes a Servlet class
+
+service() -- for every request, container creates a separate thread.. from there service() method is called
+			 from inside service() container calls either doGet() or doPost() depending upon http request type
+
+destroy() -- application is shutting down/server time out -- destroy() is called
+
+service() should not be overridden - not recommended  as it imapcts the container's processing.
+.....init() and destroy() can be overridden..if specific initialization or clean-up tasks need to be defined.
+
+
+Container creates a httpRequest and http Response and stub them with the actual request and response and feeds them to the service() and then, service() feeeds them to the doGet() and doPost() methods. similar thing with response.
+
+----------------------------------------------------------------------------------
+JSP -- Java Server Pages
+we can write out complete HTML in JSP
+
+_jspInit() -- it's called once, 
+_jspService() -- in its own thread container calls _jspService() method,
+_jspDestroy() -- called during application shutdown
+
+Implicit Objects in JSP
+
+javax.servlet.http.HttpServletReques request
+javax.servlet.http.HttpServletResponse response
+final javax.servlet.jsp.PageContext pageContext;
+javax.servlet.http.HttpSession session = null;
+final javax.servlet.ServletContext application;
+final javax.servlet.ServletConfig config;
+javax.servlet.jsp.JspWriter out = null;
+final java.lang.Object page = this;
+exception
+
+--------------------
+1. Scriptlets --- <% %> - java code - service() - every request
+
+2. Expressions --- <%= %> ---- equivalent to input parameter to out.println("") ---- directly gets rendered.
+
+3. Comments -- <%-- --%> --- will render in jsp file - container....ignored when the response is generated.
+
+		HTML part of HTML code given to client
+		JSP comments part of _jspService() of JSP
+		
+4. Declarations -- <%! %> - jspInit()
+
+-------------------------------------------------------------------------------------------------------------------------------
+Expression Language -- ${} - EL
+-- powerful language
+-- EL has implicit objects --- requestScope, sessionScope, pageScope, applicationScope, param
+
+Directives -- <%@ %> -- page, include, taglib
+
+JSTL -- Jsp Standard Tags Library
+1) Standard Action tags -- <jsp: useBean>, <jsp:getBean>,
+2) Import specific tag library using taglib directive -- -e.g. core tag library --- <c:out>, <c:if>, <c:choose>
+3) Custom Tags
+
+------------------------
+<tr>
+			<th>Sl No</th>
+			<th>Name</th>
+			<th>Experience</th>
+		</tr>
+		<tr>
+			<td>1. </td>
+			<td>${studentList[0].name}</td>
+			<td>${studentList[0].exp}</td>
+		</tr>
+		<tr>
+			<td>2.</td>
+			<td>${studentList[1].name}</td>
+			<td>${studentList[1].exp}</td>
+		</tr>
+		<tr>
+			<td>3.</td>
+			<td>${studentList[2].name}</td>
+			<td>${studentList[2].exp}</td>
+		</tr>
+------------------------		
+if --- <c:if>
+if-else-if--else --  <c:choose> -- <c:when> and <c:otherwise>
+-----------------------------------------------------------------
+
+install SpringToolSuite - STS
+
+
+
+
+
