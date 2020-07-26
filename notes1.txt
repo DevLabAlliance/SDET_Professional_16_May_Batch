@@ -1,0 +1,191 @@
+After the form is submitted, show thankyou page
+saying Thank you for your feedback.. with all the form details
+
+--------------
+Web Application : Architecture
+
+single tier -- everything tightly coupled on a single machine/server
+2-tier/2-layered -- presentation is in the client side and everything else is on the server's side
+n-tier
+presentation layer
+business layer/Service layer -- multiple
+data layer 
+
+3-tier : Presentation, Business, Data
+
+n-tier : microservices deployed on different servers - for differnet functionalities - multiple business layers 
+
+------------------
+Frameworks -- set of predefined libraries which are used to solve some problem in some specific domain/layer
+
+To cater some common issues --
+e.g. Security concern, lot of configurations, boilerplate code
+
+Cross-cutting concerns --- which affect all the layers like logging, security etc
+
+Specific frameworks created - to address these concerns
+----------------------------------------------------------------------
+
+UI(Client Side) - 
+
+HTML : Structuring the page
+CSS: Styling the page
+JS : behaviour of the page
+
+No framework : everything from scratch
+
+CSS framework : Bootstrap
+JS : Angular, React
+
+Server Side (once the code moves to serverside)
+
+-----------------------------------------------
+Spring
+
+famous framework for serverside : very popular since 10-12 years, gives lot of features
+Spring : flexible, always upto date, 
+
+vast : presence in all layers
+
+Presentation : Spring MVC
+
+Business Layer : 
+
+Spring provides great suppport for testing : JUNIT testing very easy with Spring
+
+SpringBoot : several projects on  - provides config settings - veryeasy to create, deploy and manage microservices
+
+-------------------------------------------------------------------------
+Microservices : School : Enterprise Application
+
+Admin, teachers role 
+
+Enroll, exam module,
+
+earlier - monolithic application  so everythign was on a asingle war/ear - all the code with all the modules..
+
+now, we have serparate microservices for different modules - deployed separately. - and exposed through URL
+
+http://myschool.com/student/enroll - enroll.war
+
+http://myschool.com/students - studentsdata.war
+
+School app - multiple microservices - easy to test, easy to debug issues ...independent modules can run...independent of each other...
+
+-----------------------------------------------------------------------------------------
+
+Spring Core - Dependency Injection
+
+
+class ComplexBusinessService (one of the functionalities/requirements of doing sorting for lists. arrays using sorting algo
+{
+ ..SortingAlgo is an interface and BubbleSort and HeapSort are two implementing classes.
+ 
+ SortingAlgo algo = new BubbleSort(); (needs to be instantiated) //tightly coupled - I
+}
+
+BubbleSort implements SortingAlgo
+{
+{
+//SortingAlgo is a dependency of ComplexBusinessService - as a developer I need to provide instance of BubbleSort to the CBS - directly instantiating the class
+
+//what if I need HeapSort instead of BubbleSort - very tightly coupled code. - i will have to make lot of changes...
+
+HeapSort implements SortingAlgo
+{
+}
+
+II
+
+Spring does this for us : (when we use Spring framework) - can do it only when it knows about the classes
+
+SortingAlgo algo = new BubbleSort();
+
+ComplexBusinessService service = new ComplexBusinessService(algo);
+
+@Componenet : tells the SF that these are the classes/components
+@Autowired :
+
+-----------------------------------------
+
+Beans - what is managed by SF - simple java classes
+
+Autowiring - wiring the dependencies together
+
+Dependency Injection : instead of the class managing its dependencies, sum third party - spring is managing it for the class and injecting the dependencies.
+
+IOC : Inversion of Control : design pattern : control is inversed
+
+IOC Container : generic term to implement IOC
+
+Application Context : typical IOC container of spring
+
+-----------------------------------------------
+
+2003
+before spring 2.5 all the spring configurations were XML based
+2.5 introduced annotations
+after 3.0 we've moved to complete java configuration
+spring 5.x
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------
+Spring projects
+Springboot -- convention over configuration
+Springcloud
+-------
+
+
+----------
+
+Inheritance
+Association
+Aggregation
+
+class Parent {
+ XYZ name;
+}
+
+class A extends Parent{ 
+B obj;
+doStuff(C param){
+// obj.doStuffOfB()
+}
+}
+
+------
+example BinarySearch
+
+Log levels -- TRACE, DEBUG, INFO, WARN, ERROR, FATAL
+
+----
+Spring Framework
+Heart of Spring f/w is the core module
+Core Module with the help of its container does Dependency Injection plus manages all the dependencies
+
+Spring Container = IOC container (Inversion of Control) = Application Context = BeanFactory
+
+ApplicationContext = BeanFactory + many other things AOP config , web application
+
+---
+Autowiring 
+1) Type
+2) Type + name
+
+---
+setter injection
+constructor injection
+
+
+
